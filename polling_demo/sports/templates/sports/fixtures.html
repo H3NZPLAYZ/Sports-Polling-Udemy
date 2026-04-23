@@ -9,16 +9,23 @@
         {% partialdef fixture-block inline %}
         <div id="fixtures-block"
              hx-get="{% url 'fixtures' %}"
-             hx-trigger="every 60s"
+             hx-trigger="every 20s"
              hx-swap="outerHTML"
             >
             {% for fixture in fixtures %}
-                <p class="text-lg font-semibold text-gray-800 my-4">
-                    {{fixture.team_a}}
+                <p class="text-lg font-semibold text-gray-800 my-4 p-6 border rounded text-center">
 
-                    <span class="mx-2 text-blue-500">{{fixture.score_a}} - {{fixture.score_b}}</span>
+                    <span class="grid grid-cols-6">
+                        <span class="col-span-2">
+                            {{fixture.team_a}}
+                        </span>
 
-                    {{fixture.team_b}}
+                        <span class="mx-2 text-blue-500 col-span-2">{{fixture.score_a}} - {{fixture.score_b}}</span>
+
+                        <span class="col-span-2">
+                            {{fixture.team_b}}
+                        </span>
+                    </span>
                 </p>
             {% empty %}
                 <p>No fixtures...</p>
