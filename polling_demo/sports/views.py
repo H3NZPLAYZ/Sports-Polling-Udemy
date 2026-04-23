@@ -7,4 +7,8 @@ def fixtures(request):
     context = {
         'fixtures': fixtures,
     }
+
+    if request.htmx:
+        return render(request, 'sports/fixtures.html#fixture-block', context)
+
     return render(request, 'sports/fixtures.html', context)
