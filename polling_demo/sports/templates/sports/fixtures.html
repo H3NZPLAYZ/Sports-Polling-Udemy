@@ -4,7 +4,12 @@
     <div class="flex flex-col items-center justify-center mt-8">
         <h1 class="text-4xl text-green-500">Sports Fixtures</h1>
 
-        <div id="fixtures-block">
+        <div id="fixtures-block"
+             hx-get="{% url 'fixtures' %}"
+             hx-trigger="every 60s"
+             hx-select="#fixtures-block"
+             hx-swap="outerHTML"
+            >
             {% for fixture in fixtures %}
                 <p class="text-lg font-semibold text-gray-800 my-4">
                     {{fixture.team_a}}
