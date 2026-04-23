@@ -1,0 +1,22 @@
+{% extends 'sports/base.html' %}
+{% block content %}
+
+    <div class="flex flex-col items-center justify-center mt-8">
+        <h1 class="text-4xl text-green-500">Sports Fixtures</h1>
+
+        <div id="fixtures-block">
+            {% for fixture in fixtures %}
+                <p class="text-lg font-semibold text-gray-800 my-4">
+                    {{fixture.team_a}}
+
+                    <span class="mx-2 text-blue-500">{{fixture.score_a}} - {{fixture.score_b}}</span>
+
+                    {{fixture.team_b}}
+                </p>
+            {% empty %}
+                <p>No fixtures...</p>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
