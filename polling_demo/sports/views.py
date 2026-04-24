@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from sports.models import Fixture
-
+import time
 
 # Create your views here.
 def fixtures(request):
@@ -10,6 +10,7 @@ def fixtures(request):
     }
 
     if request.htmx:
+        time.sleep(3)
         return render(request, 'sports/fixtures.html#fixture-block', context)
 
     return render(request, 'sports/fixtures.html', context)
